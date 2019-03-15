@@ -1,3 +1,37 @@
 <div>
-  
+  <div>
+    <span  class="display-4">User Detail|</span>
+    <span  class="h1"> <a routerLink="/user/create">Create</a></span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="user">
+    <tr>
+      <th scope="col">Id: </th>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Username: </th>
+      <td>{{user.username}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Name: </th>
+      <td>{{user.firstname}} {{user.latname}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Phone: </th>
+      <td>{{user.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Email: </th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Reviewer: </th>
+      <td>{{user.isReviewer ? "Yes" : "No"}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Admin: </th>
+      <td>{{user.isAdmin ? "Yes" : "No"}}</td>
+    </tr>
+  </table>
+  <p><span  class="h5"> <a routerLink="/user/list">Back to list</a></span></p>
 </div>
