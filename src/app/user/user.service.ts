@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 
 import{HttpClient} from '@angular/common/http';
 import{Observable} from 'rxjs';
+import { User } from './user.class';
 
-const url = "http://localhost:52132/api/";
+const url = "http://localhost:52132/api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  list(): Observable<User[]>{
+    return this.http.get(`${url}/users`) as Observable<User[]>;
+  }
+
+  constructor(private http: HttpClient) { }
 }
