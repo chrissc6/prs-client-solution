@@ -1,6 +1,9 @@
 <div>
-  <h3 class="display-3">User List</h3>
-  <table class="table table-striped table-bordered">
+  <div>
+    <span  class="display-4">User List|</span>
+    <span  class="h1"> <a routerLink="/user/create">Create</a></span>
+  </div>
+  <table class="table table-hover table-bordered table-sm">
     <thead>
       <tr>
           <!-- <th scope="col">Id: </th> -->
@@ -11,26 +14,28 @@
           <th scope="col">Name: </th>
           <th scope="col">Phone: </th>
           <th scope="col">Email: </th>
-          <th scope="col">Reviewer: </th>
-          <th scope="col">Admin: </th>
+          <th scope="col">Reviewer? </th>
+          <th scope="col">Admin? </th>
           <th scope="col">Actions: </th>
       </tr>
     </thead>
-    <tr *ngFor="let u of users">
-        <!-- <td>{{u.id}}</td> -->
-        <td>{{u.username}}</td>
-        <!-- <td>{{u.password}}</td>
-        <td>{{u.firstname}}</td>
-        <td>{{u.lastname}}</td> -->
-        <td>{{u.firstname}} {{u.lastname}}</td>
-        <td>{{u.phone}}</td>
-        <td>{{u.email}}</td>
-        <td>{{u.isReviewer ? "Yes" : "No"}}</td>
-        <td>{{u.isAdmin ? "Yes" : "No"}}</td>
-        <td>
-          <a routerLink="/user/detail/{{u.id}}">Detail</a> |
-          <a routerLink="/user/edit/{{u.id}}">Edit</a>
-        </td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let u of users">
+          <!-- <td>{{u.id}}</td> -->
+          <td>{{u.username}}</td>
+          <!-- <td>{{u.password}}</td>
+          <td>{{u.firstname}}</td>
+          <td>{{u.lastname}}</td> -->
+          <td>{{u.firstname}} {{u.lastname}}</td>
+          <td>{{u.phone}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.isReviewer ? "Yes" : "No"}}</td>
+          <td>{{u.isAdmin ? "Yes" : "No"}}</td>
+          <td>
+            <a routerLink="/user/detail/{{u.id}}">Detail</a> |
+            <a routerLink="/user/edit/{{u.id}}">Edit</a>
+          </td>
+      </tr>
+    </tbody>
   </table>
 </div>
