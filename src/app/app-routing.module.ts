@@ -15,10 +15,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, //1st route always
 
   //user
-  {path: 'users/list', component: UserListComponent},
-  {path: 'users/detail/:id', component: UserDetailComponent}, //id needed
-  {path: 'users/create', component: UserCreateComponent},
-  {path: 'users/edit/:id', component: UserEditComponent}, //id needed
+  {path: 'user/list', component: UserListComponent},
+  {path: 'user/detail/:id', component: UserDetailComponent}, //id needed
+  {path: 'user/create', component: UserCreateComponent},
+  {path: 'user/edit/:id', component: UserEditComponent}, //id needed
 
   //home and about
   {path: 'home', component: HomeComponent},
