@@ -11,7 +11,7 @@ export class User {
     isAdmin: boolean;
     active: boolean;
 
-    constructor(id:number, un:string, pw:string, fn:string, ln:string, 
+    constructor(un:string, pw:string, fn:string, ln:string, 
         pn:string, em:string, ir:boolean=false, ia:boolean=false)
     {
         this.id = 0;
