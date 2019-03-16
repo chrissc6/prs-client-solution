@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-user-create',
@@ -12,6 +14,8 @@ import {User} from '../user.class';
 export class UserCreateComponent implements OnInit {
 
   user: User = new User("", "", "", "", "", "");
+  password2:string = "";
+  
 
   save():void{
     this.userscvr.create(this.user)
@@ -25,6 +29,21 @@ export class UserCreateComponent implements OnInit {
       }
     );
   }
+
+  // checkP(user, password2):void{
+
+  //   if(this.user.password == password2)
+  //   {
+  //     this.save();
+  //   }
+  //   else
+  //   {
+  //     err =>{ //error
+  //       console.error(err);
+  //     }
+  //   }
+
+  // }
 
   constructor(private userscvr: UserService,
     private router: Router) { }

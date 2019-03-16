@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{ActivatedRoute} from '@angular/router';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,7 +15,8 @@ export class UserDetailComponent implements OnInit {
   user: User;
 
   constructor(private userscvr: UserService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params.id;
@@ -24,6 +26,18 @@ export class UserDetailComponent implements OnInit {
         console.log(respond);
         this.user = respond;
         });
-}
+  }
 
+  editB():void{
+    this.userscvr.change(this.user)
+    .subscribe(
+      respond => { //success
+        console.log(respond);
+        this.router.navigateByUrl(`/user/edit/${this.user.id}`);
+      },
+      err =>{ //error
+        console.error(err);
+      }
+    );
+  }
 }
