@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
-import { checkAndUpdateBinding } from '@angular/core/src/view/util';
-import { userInfo } from 'os';
+// import { checkAndUpdateBinding } from '@angular/core/src/view/util';
+// import { userInfo } from 'os';
 
 @Component({
   selector: 'app-user-create',
@@ -14,7 +14,7 @@ import { userInfo } from 'os';
 export class UserCreateComponent implements OnInit {
 
   user: User = new User("", "", "", "", "", "");
-  password2:string = "";
+  // password2:string = "";
   
 
   save():void{
