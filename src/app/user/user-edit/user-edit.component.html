@@ -1,4 +1,49 @@
-<p>
-  user-edit works!
-</p>
-<p><span  class="h5"> <a routerLink="/user/list">Back to list</a></span></p>
+
+
+<div>
+  <div>
+    <span  class="display-4">User Create</span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive">
+    <tr>
+      <td>Username</td>
+      <td><input [(ngModel)]="user.username" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><input [(ngModel)]="user.password" class="inputstirng" type="password"></td>
+    </tr>
+    <!-- <tr>
+      <td>Reenter Password</td>
+      <td><input [(ngModel)]="password2" class="inputstirng" type="password"></td>
+    </tr> -->
+    <tr>
+      <td>FirstName</td>
+      <td><input [(ngModel)]="user.firstname" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>LastName</td>
+      <td><input [(ngModel)]="user.lastname" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><input [(ngModel)]="user.phone" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input [(ngModel)]="user.email" class="inputstirng" type="email"></td>
+    </tr>
+    <tr>
+      <td>Reviewer?</td>
+      <td><input [(ngModel)]="user.isReviewer" class="inputstirng" type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>Admin?</td>
+      <td><input [(ngModel)]="user.isAdmin" class="inputstirng" type="checkbox"></td>
+    </tr>
+    <tr>
+      <button (click)="save()" class="btn btn-success">Save</button>
+    </tr>
+  </table>
+  <p><span  class="h5"> <a routerLink="/user/list">Back to list</a></span></p>
+</div>
