@@ -36,8 +36,9 @@ export class SearchPipe implements PipeTransform {
         arrOut.push(u);
         continue;
       }
-      // u.phone.replace("-", "");
-      if(u.phone.toLowerCase().includes(criteria.toLowerCase()))
+
+      let phone = u.phone.replace(/-/g, "");
+      if(phone.toLowerCase().includes(criteria.toLowerCase()))
       {
         arrOut.push(u);
         continue;
