@@ -14,20 +14,28 @@ import {User} from '../user.class';
 export class UserCreateComponent implements OnInit {
 
   user: User = new User("", "", "", "", "", "");
-  // password2:string = "";
+  password2:string = "";
   
 
   save():void{
-    this.userscvr.create(this.user)
-    .subscribe(
-      respond => { //success
-        console.log(respond);
-        this.router.navigateByUrl('/user/list');
-      },
-      err =>{ //error
-        console.error(err);
-      }
-    );
+    if(this.password2 == this.user.password)
+    {
+      this.userscvr.create(this.user)
+      .subscribe(
+        respond => { //success
+          console.log(respond);
+          this.router.navigateByUrl('/user/list');
+        },
+        err =>{ //error
+          console.error(err);
+        }
+      );
+    }
+    else{
+      console.log("Passwords did not match")
+      this.password2 = "";
+      this.user.password = "";
+    }
   }
 
   // checkP(user, password2):void{
