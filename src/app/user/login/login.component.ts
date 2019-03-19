@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   user: User;
   username: string = "";
   password: string = "";
+  message: string = "";
 
   login():void{
     this.usersrvc.login(this.username, this.password)
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         console.log("Login Failed - Username/Password combination not found", err);
+        this.message = "Login Failed - Username or Password not found";
       }
     )
   }
