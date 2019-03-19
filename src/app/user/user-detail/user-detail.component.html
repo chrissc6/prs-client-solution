@@ -38,6 +38,7 @@
     </tr>
   </table>
   <span><button (click)="editB()" class="btn btn-secondary">Edit</button> | </span>
-  <span><button (click)="delete()" class="btn btn-warning">Delete</button></span>
+  <span><button (click)="setVerify()" class="btn btn-warning">Delete</button> | </span>
+  <span *ngIf="verify == true"><button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
   <p><span  class="h5"> <a routerLink="/user/list">Back to list</a></span></p>
 </div>

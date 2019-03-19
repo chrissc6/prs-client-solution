@@ -14,6 +14,8 @@ export class UserDetailComponent implements OnInit {
 
   user: User;
 
+  verify: boolean = false;
+
   constructor(private userscvr: UserService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -26,6 +28,10 @@ export class UserDetailComponent implements OnInit {
         console.log(respond);
         this.user = respond;
         });
+  }
+
+  setVerify(): void{
+    this.verify = true;
   }
 
   delete(): void{
