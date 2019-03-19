@@ -4,7 +4,7 @@
   <div>
     <span  class="display-4">User Create</span>
   </div>
-  <table class="table table-hover table-bordered table-responsive">
+  <table class="table table-hover table-bordered table-responsive" *ngIf="user">
     <tr>
       <td>Username</td>
       <td><input [(ngModel)]="user.username" class="inputstirng" type="text"></td>

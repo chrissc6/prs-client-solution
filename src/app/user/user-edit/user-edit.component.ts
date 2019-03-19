@@ -12,17 +12,19 @@ import {User} from '../user.class';
 })
 export class UserEditComponent implements OnInit {
 
-  user: User = new User("", "", "", "", "", "");
+  //no need to initialize because were going to load it with data
+  //had to add *ngIf in the html
+  user: User;
 
   save():void{
     this.userscvr.change(this.user)
     .subscribe(
       respond => { //success
-        console.log(respond);
+        console.log("User Update Successful!: ", respond);
         this.router.navigateByUrl('/user/list');
       },
       err =>{ //error
-        console.error(err);
+        console.error("User Update Error: ", err);
       }
     );
   }
@@ -38,7 +40,11 @@ export class UserEditComponent implements OnInit {
       .subscribe(respond => {
         console.log(respond);
         this.user = respond;
-        });
+        },
+        err =>{ //error
+          console.error(err);
+        }
+      );
   }
 
 }
