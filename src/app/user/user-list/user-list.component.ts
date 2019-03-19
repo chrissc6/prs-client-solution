@@ -12,6 +12,7 @@ import {SystemService} from '../../system/system.service';
 export class UserListComponent implements OnInit {
 
   users: User[];
+  searchCriteria: string = "";
 
   constructor(private usersrvc: UserService,
     private syssvc: SystemService) { }
