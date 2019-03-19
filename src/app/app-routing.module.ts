@@ -12,6 +12,12 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import{LoginComponent} from './user/login/login.component';
 
+//vendor
+import{VendorListComponent} from './vendor/vendor-list/vendor-list.component';
+import{VendorDetailComponent} from './vendor/vendor-detail/vendor-detail.component';
+import{VendorCreateComponent} from './vendor/vendor-create/vendor-create.component';
+import{VendorEditComponent} from './vendor/vendor-edit/vendor-edit.component';
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, //1st route always
 
@@ -21,6 +27,12 @@ const routes: Routes = [
   {path: 'user/create', component: UserCreateComponent},
   {path: 'user/edit/:id', component: UserEditComponent}, //id needed
   {path: 'login', component: LoginComponent},
+
+  //vendor
+  {path: 'vendor/list', component: VendorListComponent},
+  {path: 'vendor/detail/:id', component: VendorDetailComponent},
+  {path: 'vendor/create', component: VendorCreateComponent},
+  {path: 'vendor/edit/:id', component: VendorEditComponent},
 
   //home and about
   {path: 'home', component: HomeComponent},
