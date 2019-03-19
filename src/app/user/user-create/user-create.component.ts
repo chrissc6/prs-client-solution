@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{Router} from '@angular/router';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
+import {SystemService} from '../../system/system.service';
 // import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 // import { userInfo } from 'os';
 

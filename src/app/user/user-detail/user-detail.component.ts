@@ -4,6 +4,7 @@ import{ActivatedRoute} from '@angular/router';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
 import{Router} from '@angular/router';
+import {SystemService} from '../../system/system.service';
 
 @Component({
   selector: 'app-user-detail',
