@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
 import {User} from '../user.class';
 import {Router} from '@angular/router';
+import {SystemService} from '../../system/system.service';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit {
     .subscribe(
       respond => {
         console.log("Login Successful!", respond);
+        let x = respond;
+        this.syssvc.loggedInUser = x;
         this.router.navigateByUrl("/home");
       },
       err => {
@@ -30,9 +33,11 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  constructor(private usersrvc: UserService, private router: Router) { }
+  constructor(private usersrvc: UserService, private router: Router,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
+    this.syssvc.loggedInUser = null // user not logged in
   }
 
 }
