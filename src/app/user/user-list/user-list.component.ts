@@ -13,7 +13,8 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
-  constructor(private usersrvc: UserService) { }
+  constructor(private usersrvc: UserService,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
     this.usersrvc.list()

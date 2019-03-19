@@ -32,7 +32,8 @@ export class UserEditComponent implements OnInit {
 
   constructor(private userscvr: UserService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params.id;

@@ -20,7 +20,8 @@ export class UserDetailComponent implements OnInit {
 
   constructor(private userscvr: UserService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params.id;
