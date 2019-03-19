@@ -18,6 +18,7 @@ import { LoginComponent } from './user/login/login.component';
 import { MenuComponent } from './system/menu/menu.component';
 import { MenuItemComponent } from './system/menu-item/menu-item.component';
 import { BooldispPipe } from './system/booldisp.pipe';
+import { SearchPipe } from './system/search.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BooldispPipe } from './system/booldisp.pipe';
     LoginComponent,
     MenuComponent,
     MenuItemComponent,
-    BooldispPipe
+    BooldispPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
