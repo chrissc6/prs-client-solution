@@ -26,6 +26,9 @@ export class UserService {
   remove(user:User): Observable<any>{
     return this.http.delete(`${url}/users/${user.id}`) as Observable<any>;
   }
+  login(username:string, password:string): Observable<User>{
+    return this.http.get(`${url}/users/auth/{username}/{password}`) as Observable<User>;
+  }
 
   constructor(private http: HttpClient) { }
 }
