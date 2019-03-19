@@ -28,6 +28,19 @@ export class UserDetailComponent implements OnInit {
         });
   }
 
+  delete(): void{
+    this.userscvr.remove(this.user)
+    .subscribe(
+      respond => {
+        console.log("User Delete Successful!", respond)
+        this.router.navigateByUrl(`/user/list`);
+      },
+      err => {
+        console.log("User Delete Successful!", err)
+      }
+    );
+  }
+
   editB():void{
     this.userscvr.change(this.user)
     .subscribe(
