@@ -27,15 +27,15 @@
     </tr>
     <tr>
       <th scope="col">Reviewer: </th>
-      <td>{{user.isReviewer ? "Yes" : "No"}}</td>
+      <td>{{user.isReviewer | booldisp}}</td>
     </tr>
     <tr>
       <th scope="col">Admin: </th>
-      <td>{{user.isAdmin ? "Yes" : "No"}}</td>
+      <td>{{user.isAdmin | booldisp}}</td>
     </tr>
     <tr>
       <th scope="col">Active: </th>
-      <td>{{user.active ? "Yes" : "No"}}</td>
+      <td>{{user.active | booldisp}}</td>
     </tr>
   </table>
   <span><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
