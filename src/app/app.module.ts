@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './user/login/login.component';
 import { MenuComponent } from './system/menu/menu.component';
 import { MenuItemComponent } from './system/menu-item/menu-item.component';
+import { BooldispPipe } from './system/booldisp.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MenuItemComponent } from './system/menu-item/menu-item.component';
     AboutComponent,
     LoginComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    BooldispPipe
   ],
   imports: [
     BrowserModule,
