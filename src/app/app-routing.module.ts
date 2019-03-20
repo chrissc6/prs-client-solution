@@ -18,6 +18,9 @@ import{VendorDetailComponent} from './vendor/vendor-detail/vendor-detail.compone
 import{VendorCreateComponent} from './vendor/vendor-create/vendor-create.component';
 import{VendorEditComponent} from './vendor/vendor-edit/vendor-edit.component';
 
+//product
+
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, //1st route always
 
