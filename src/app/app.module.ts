@@ -27,6 +27,7 @@ import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component'
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
 import { VenSearchPipe } from './system/ven-search.pipe';
+
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
