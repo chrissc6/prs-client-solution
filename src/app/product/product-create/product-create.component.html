@@ -6,7 +6,7 @@
   </div>
   <table class="table table-hover table-bordered table-responsive" *ngIf="product">
     <tr>
-      <td>Vendor</td>
+      <th scope="col">Vendor: </th>
       <td>
         <select [(ngModel)]="product.vendorId">
             <option *ngFor="let v of vendors" [ngValue]="v.id">{{v.name}}</option>
@@ -14,27 +14,27 @@
       </td>
     </tr>
     <tr>
-      <td>Part #</td>
+      <th scope="col">Part #: </th>
       <td><input [(ngModel)]="product.partNumber" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Name</td>
+      <th scope="col">Name: </th>
       <td><input [(ngModel)]="product.name" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Price</td>
+      <th scope="col">Price: </th>
       <td><input [(ngModel)]="product.price" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Unit</td>
+      <th scope="col">Unit: </th>
       <td><input [(ngModel)]="product.unit" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Photopath</td>
+      <th scope="col">Photopath: </th>
       <td><input [(ngModel)]="product.photoPath" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Active?</td>
+      <th scope="col">Active? </th>
       <td><input [(ngModel)]="product.active" class="inputstirng" type="checkbox"></td>
     </tr>
     <tr>

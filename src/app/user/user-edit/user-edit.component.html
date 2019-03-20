@@ -6,11 +6,11 @@
   </div>
   <table class="table table-hover table-bordered table-responsive" *ngIf="user">
     <tr>
-      <td>Username</td>
+      <th scope="col">Username: </th>
       <td><input [(ngModel)]="user.username" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Password</td>
+      <th scope="col">Password: </th>
       <td><input [(ngModel)]="user.password" class="inputstirng" type="password"></td>
     </tr>
     <!-- <tr>
@@ -18,27 +18,27 @@
       <td><input [(ngModel)]="password2" class="inputstirng" type="password"></td>
     </tr> -->
     <tr>
-      <td>FirstName</td>
+      <th scope="col">FirstName: </th>
       <td><input [(ngModel)]="user.firstname" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>LastName</td>
+      <th scope="col">LastName: </th>
       <td><input [(ngModel)]="user.lastname" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Phone</td>
+      <th scope="col">Phone: </th>
       <td><input [(ngModel)]="user.phone" class="inputstirng" type="text"></td>
     </tr>
     <tr>
-      <td>Email</td>
+      <th scope="col">Email: </th>
       <td><input [(ngModel)]="user.email" class="inputstirng" type="email"></td>
     </tr>
     <tr>
-      <td>Reviewer?</td>
+      <th scope="col">Reviewer?</th>
       <td><input [(ngModel)]="user.isReviewer" class="inputstirng" type="checkbox"></td>
     </tr>
     <tr>
-      <td>Admin?</td>
+      <th scope="col">Admin?</th>
       <td><input [(ngModel)]="user.isAdmin" class="inputstirng" type="checkbox"></td>
     </tr>
     <tr>
