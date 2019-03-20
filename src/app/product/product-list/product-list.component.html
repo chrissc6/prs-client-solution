@@ -1,4 +1,34 @@
 <app-menu></app-menu>
-<p>
-  product-list works!
-</p>
+<div>
+    <div>
+      <span  class="display-4">Product List</span>
+      <span  class="h1"> | <a routerLink="/product/create">Create</a></span>
+    </div>
+    <table class="table table-hover table-bordered table-responsive">
+      <thead>
+        <tr>
+            <th scope="col">Vendor: </th>
+            <th scope="col">Part #: </th>
+            <th scope="col">Name: </th>
+            <th scope="col">Price: </th>
+            <th scope="col">Unit </th>
+            <th scope="col">Photopath </th>
+            <th scope="col">Actions: </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+            <td><a routerLink="/vendor/detail/{{p.vendor.id}}">{{p.vendor.name}}</a></td>
+            <td>{{p.partNumber}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.unit}}</td>
+            <td>{{p.photoPath}}</td>
+            <td>
+              <a routerLink="/product/detail/{{p.id}}">Detail</a> |
+              <a routerLink="/product/edit/{{p.id}}">Edit</a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
