@@ -1,4 +1,41 @@
 <app-menu></app-menu>
-<p>
-  product-detail works!
-</p>
+<div>
+  <div>
+    <span  class="display-4">Product Detail|</span>
+    <span  class="h1"> <a routerLink="/product/create">Create</a></span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="product">
+    <tr>
+      <th scope="col">Vendor: </th>
+      <td><a routerLink="/vendor/detail/{{product.vendor.id}}">{{product.vendor.name}}</a></td>
+    </tr>
+    <tr>
+      <th scope="col">Part #: </th>
+      <td>{{product.partNumber}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Name: </th>
+      <td>{{product.name}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Price: </th>
+      <td>{{product.price}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Unit: </th>
+      <td>{{product.unit}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Photopath: </th>
+      <td>{{product.photoPath}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Active: </th>
+      <td>{{product.active | booldisp}}</td>
+    </tr>
+  </table>
+  <span><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
+  <span *ngIf="verifyN"><button (click)="setVerify()" class="btn btn-warning">Delete</button></span>
+  <span *ngIf="verify"><button (click)="setVerifyN()" class="btn btn-warning">Cancel Delete</button> | </span>
+  <span *ngIf="verify"><button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+</div>
