@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import{ActivatedRoute} from '@angular/router';
+import {VendorService} from '../vendor.service';
+import {Vendor} from '../vendor.class';
+import{Router} from '@angular/router';
+import {SystemService} from '../../system/system.service';
+
 @Component({
   selector: 'app-vendor-detail',
   templateUrl: './vendor-detail.component.html',
@@ -7,9 +13,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorDetailComponent implements OnInit {
 
-  constructor() { }
+  vendor: Vendor;
+
+  verify: boolean = false;
+  verifyN: boolean = true;
+
+  constructor(private venscvr: VendorService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private syssvc: SystemService) { }
 
   ngOnInit() {
+    let id = this.route.snapshot.params.id;
+
+    this.venscvr.get(id)
+    .subscribe(respond => {
+      console.log(respond);
+      this.vendor = respond;
+    });
+  }
+
+  setVerify(): void{
+    this.verify = true;
+    this.verifyN = false;
+  }
+
+  setVerifyN(): void{
+    this.verify = false;
+    this.verifyN = true;
+  }
+
+  delete(): void{
+    this.venscvr.remove(this.vendor)
+    .subscribe(respond => {
+      console.log("Vendor Delete Successful!", respond)
+      this.router.navigateByUrl('/vendor/list');
+    },
+    err => {
+      console.log("Vendor Delete Failed", err)
+    });
+  }
+
+  editB():void{
+    this.venscvr.change(this.vendor)
+    .subscribe(
+      respond => {
+        console.log(respond);
+        this.router.navigateByUrl(`/vendor/edit/${this.vendor.id}`);
+      },
+      err =>{
+        console.error(err);
+      }
+    );
   }
 
 }

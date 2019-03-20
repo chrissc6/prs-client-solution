@@ -1,4 +1,53 @@
 <app-menu></app-menu>
-<p>
-  vendor-detail works!
-</p>
+<div>
+  <div>
+      <span  class="display-4">Vendor Detail|</span>
+      <span  class="h1"> <a routerLink="/vendor/create">Create</a></span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="vendor">
+      <tr>
+        <th scope="col">Code: </th>
+        <td>{{vendor.code}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Name: </th>
+        <td>{{vendor.name}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Address: </th>
+        <td>{{vendor.address}}</td>
+      </tr>
+      <tr>
+        <th scope="col">City: </th>
+        <td>{{vendor.city}}</td>
+      </tr>
+      <tr>
+        <th scope="col">State: </th>
+        <td>{{vendor.state}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Zip: </th>
+        <td>{{vendor.zip}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Phone: </th>
+        <td>{{vendor.phone}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Email: </th>
+        <td>{{vendor.email}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Preferred? </th>
+        <td>{{vendor.isPreferred | booldisp}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Active? </th>
+        <td>{{vendor.active | booldisp}}</td>
+      </tr>
+    </table>
+  <span><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
+  <span *ngIf="verifyN"><button (click)="setVerify()" class="btn btn-warning">Delete</button></span>
+  <span *ngIf="verify"><button (click)="setVerifyN()" class="btn btn-warning">Cancel Delete</button> | </span>
+  <span *ngIf="verify"><button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+</div>

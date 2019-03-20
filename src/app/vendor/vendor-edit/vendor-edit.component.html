@@ -1,4 +1,48 @@
 <app-menu></app-menu>
-<p>
-  vendor-edit works!
-</p>
+<div>
+    <div>
+      <span  class="display-4">Vendor Edit</span>
+    </div>
+    <table class="table table-hover table-bordered table-responsive" *ngIf="vendor">
+      <tr>
+        <td>Code</td>
+        <td><input [(ngModel)]="vendor.code" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input [(ngModel)]="vendor.name" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><input [(ngModel)]="vendor.address" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td><input [(ngModel)]="vendor.city" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td><input [(ngModel)]="vendor.state" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>Zip</td>
+        <td><input [(ngModel)]="vendor.zip" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td><input [(ngModel)]="vendor.phone" class="inputstirng" type="text"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input [(ngModel)]="vendor.email" class="inputstirng" type="email"></td>
+      </tr>
+      <tr>
+        <td>Preferred?</td>
+        <td><input [(ngModel)]="vendor.isPreferred" class="inputstirng" type="checkbox"></td>
+      </tr>
+      <tr>
+        <button (click)="save()" class="btn btn-success">Save</button>
+      </tr>
+    </table>
+  </div>
+  

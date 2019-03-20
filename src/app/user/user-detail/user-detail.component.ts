@@ -51,7 +51,7 @@ export class UserDetailComponent implements OnInit {
         this.router.navigateByUrl(`/user/list`);
       },
       err => {
-        console.log("User Delete Successful!", err)
+        console.log("User Delete Failed!", err)
       }
     );
   }
