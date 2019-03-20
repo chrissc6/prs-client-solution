@@ -4,6 +4,8 @@ import{Router} from '@angular/router';
 import{ActivatedRoute} from '@angular/router';
 import{Product} from '../product.class';
 import{ProductService} from '../product.service';
+import{Vendor} from '../../vendor/vendor.class';
+import{VendorService} from '../../vendor/vendor.service';
 import {SystemService} from '../../system/system.service';
 
 @Component({
@@ -14,6 +16,7 @@ import {SystemService} from '../../system/system.service';
 export class ProductEditComponent implements OnInit {
 
   product: Product;
+  vendors: Vendor[];
 
   save():void{
     this.proscvr.change(this.product)
@@ -29,6 +32,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   constructor(private proscvr: ProductService,
+    private venscvr: VendorService,
     private router: Router,
     private route: ActivatedRoute,
     private syssvc: SystemService) { }
@@ -44,6 +48,16 @@ export class ProductEditComponent implements OnInit {
         },
         err =>{
           console.error(err);
+        }
+      );
+    
+    this.venscvr.list()
+      .subscribe(respond => {
+        console.log(respond);
+        this.vendors = respond;
+        },
+        err => {
+          console.log(err);
         }
       );
   }

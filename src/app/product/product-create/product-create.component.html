@@ -1,4 +1,44 @@
+
 <app-menu></app-menu>
-<p>
-  product-create works!
-</p>
+<div>
+  <div>
+    <span  class="display-4">Product Edit</span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="product">
+    <tr>
+      <td>Vendor</td>
+      <td>
+        <select [(ngModel)]="product.vendorId">
+            <option *ngFor="let v of vendors" [ngValue]="v.id">{{v.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Part #</td>
+      <td><input [(ngModel)]="product.partNumber" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input [(ngModel)]="product.name" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><input [(ngModel)]="product.price" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Unit</td>
+      <td><input [(ngModel)]="product.unit" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Photopath</td>
+      <td><input [(ngModel)]="product.photoPath" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <td>Active?</td>
+      <td><input [(ngModel)]="product.active" class="inputstirng" type="checkbox"></td>
+    </tr>
+    <tr>
+      <button (click)="save()" class="btn btn-success">Save</button>
+    </tr>
+  </table>
+  </div>

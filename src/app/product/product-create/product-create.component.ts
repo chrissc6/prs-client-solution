@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import{Router} from '@angular/router';
+import{Product} from '../product.class';
+import{ProductService} from '../product.service';
+import{Vendor} from '../../vendor/vendor.class';
+import{VendorService} from '../../vendor/vendor.service';
+import {SystemService} from '../../system/system.service';
+
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
@@ -7,9 +14,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCreateComponent implements OnInit {
 
-  constructor() { }
+  vendors: Vendor[];
+  product: Product = new Product(0,"","",0,"Each","")
+
+  constructor(private proscvr: ProductService,
+    private venscvr: VendorService,
+    private router: Router,
+    private syssvc: SystemService) { }
+
+    save():void{
+      this.proscvr.create(this.product)
+        .subscribe(
+          respond => {
+            console.log(respond);
+            this.router.navigateByUrl('/product/list');
+          },
+          err => {
+            console.error(err);
+          }
+        );
+    }
 
   ngOnInit() {
+    this.venscvr.list()
+    .subscribe(respond => {
+      this.vendors = respond;
+      console.log(respond);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 }

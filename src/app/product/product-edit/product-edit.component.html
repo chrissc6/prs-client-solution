@@ -8,11 +8,14 @@
     <tr>
       <td>Vendor</td>
       <td>
-          <form action="" name="FILTER">
-            <select name="filter_for">
-              <option value="{{product.vendor.id}}">{{product.vendor.name}}</option>
+            <!-- <form action="" name="FILTER">
+              <select name="filter_for">
+                <option value="{{product.vendor.id}}">{{product.vendor.name}}</option>
+              </select>
+            </form> -->
+            <select [(ngModel)]="product.vendorId">
+              <option *ngFor="let v of vendors" [ngValue]="v.id">{{v.name}}</option>
             </select>
-          </form>
       </td>
     </tr>
     <tr>
