@@ -1,4 +1,50 @@
+
 <app-menu></app-menu>
-<p>
-  request-detail works!
-</p>
+<div>
+  <div>
+    <span  class="display-4">Request Edit|</span>
+    <span  class="h1"> <a routerLink="/request/create">Create</a></span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="request">
+    <tr>
+      <th scope="col">Description:</th>
+      <td>{{request.description}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Justification:</th>
+      <td>{{request.justification}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Rejection Reason:</th>
+      <td>{{request.rejectionReason}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery Mode:</th>
+      <td>{{request.deliveryMode}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Submitted Date:</th>
+      <td>{{request.submittedDate}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Status:</th>
+      <td>{{request.status}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Total: </th>
+      <td>{{request.total}}</td>
+    </tr>
+    <tr>
+      <th scope="col">User: </th>
+      <td>{{request.user.username}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Active? </th>
+      <td>{{request.active}}</td>
+    </tr>
+  </table>
+  <span><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
+  <span *ngIf="verifyN"><button (click)="setVerify()" class="btn btn-warning">Delete</button></span>
+  <span *ngIf="verify"><button (click)="setVerifyN()" class="btn btn-warning">Cancel Delete</button> | </span>
+  <span *ngIf="verify"><button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
+  </div>

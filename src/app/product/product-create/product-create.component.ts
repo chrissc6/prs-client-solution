@@ -45,6 +45,6 @@ export class ProductCreateComponent implements OnInit {
         console.log(err);
       }
     )
-  }
+  };
 
 }

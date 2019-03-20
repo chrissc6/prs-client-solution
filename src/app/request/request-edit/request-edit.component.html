@@ -1,4 +1,48 @@
+
 <app-menu></app-menu>
-<p>
-  request-edit works!
-</p>
+<div>
+  <div>
+    <span  class="display-4">Request Edit</span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="request">
+    <tr>
+      <th scope="col">Description:</th>
+      <td><input [(ngModel)]="request.description" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Justification:</th>
+      <td><input [(ngModel)]="request.justification" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Rejection Reason:</th>
+      <td><input [(ngModel)]="request.rejectionReason" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Delivery Mode:</th>
+      <td><input [(ngModel)]="request.deliveryMode" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Submitted Date:</th>
+      <td><input [(ngModel)]="request.submittedDate" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Status:</th>
+      <td><input [(ngModel)]="request.status" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">Total: </th>
+      <td><input [(ngModel)]="request.total" class="inputstirng" type="text"></td>
+    </tr>
+    <tr>
+      <th scope="col">User: </th>
+      <td><input [(ngModel)]="request.user.username" class="inputstirng" type="text" disabled></td>
+    </tr>
+    <tr>
+      <th scope="col">Active? </th>
+      <td><input [(ngModel)]="request.active" class="inputstirng" type="checkbox"></td>
+    </tr>
+    <tr>
+      <button (click)="save()" class="btn btn-success">Save</button>
+    </tr>
+  </table>
+  </div>
