@@ -37,6 +37,8 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { ProSearchPipe } from './system/pro-search.pipe';
+import { ReSearchPipe } from './system/re-search.pipe';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { RequestCreateComponent } from './request/request-create/request-create.
     RequestListComponent,
     RequestEditComponent,
     RequestDetailComponent,
-    RequestCreateComponent
+    RequestCreateComponent,
+    ProSearchPipe,
+    ReSearchPipe
   ],
   imports: [
     BrowserModule,
