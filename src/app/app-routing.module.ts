@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 //home and about
@@ -30,6 +30,11 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 
+//requestlines
+import { RequestLineListComponent } from './requestLine/request-line-list/request-line-list.component';
+import { RequestLineEditComponent } from './requestLine/request-line-edit/request-line-edit.component';
+import { RequestLineCreateComponent } from './requestLine/request-line-create/request-line-create.component';
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, //1st route always
 
@@ -57,6 +62,11 @@ const routes: Routes = [
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/create', component: RequestCreateComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
+
+  //requestlines
+  {path: 'requestline/list/:rid', component: RequestLineListComponent},
+  {path: 'requestline/edit/:id', component: RequestLineEditComponent},
+  {path: 'requestline/create/:rid', component: RequestLineCreateComponent},
 
   //home and about
   {path: 'home', component: HomeComponent},
