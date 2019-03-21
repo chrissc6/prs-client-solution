@@ -39,6 +39,7 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { ProSearchPipe } from './system/pro-search.pipe';
 import { ReSearchPipe } from './system/re-search.pipe';
+import { SortPipe } from './system/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ReSearchPipe } from './system/re-search.pipe';
     RequestDetailComponent,
     RequestCreateComponent,
     ProSearchPipe,
-    ReSearchPipe
+    ReSearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

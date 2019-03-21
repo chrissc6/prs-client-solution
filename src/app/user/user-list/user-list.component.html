@@ -9,20 +9,20 @@
     <thead>
       <tr>
           <!-- <th scope="col">Id: </th> -->
-          <th scope="col">Username: </th>
+          <th class="sortr" scope="col"><a (click)="sortBy('username')">Username: </a></th>
           <!-- <th scope="col">Password: </th>
           <th scope="col">Firstname: </th>
           <th scope="col">Lastname: </th> -->
-          <th scope="col">Name: </th>
-          <th scope="col">Phone: </th>
-          <th scope="col">Email: </th>
+          <th class="sortr" scope="col"><a (click)="sortBy('lastname')">Name: </a></th>
+          <th class="sortr" scope="col"><a (click)="sortBy('phone')">Phone: </a></th>
+          <th class="sortr" scope="col"><a (click)="sortBy('email')">Email: </a></th>
           <th scope="col">Reviewer? </th>
           <th scope="col">Admin? </th>
           <th scope="col">Actions: </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let u of users | search:searchCriteria">
+      <tr *ngFor="let u of users | search:searchCriteria | sort:sortCriteria:sortOrder">
           <!-- <td>{{u.id}}</td> -->
           <td>{{u.username}}</td>
           <!-- <td>{{u.password}}</td>
