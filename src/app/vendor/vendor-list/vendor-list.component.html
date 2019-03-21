@@ -8,20 +8,20 @@
   <table class="table table-hover table-bordered table-responsive">
       <thead>
         <tr>
-            <th scope="col">Code: </th>
-            <th scope="col">Name: </th>
-            <th scope="col">Address: </th>
-            <th scope="col">City: </th>
-            <th scope="col">State: </th>
-            <th scope="col">Zip: </th>
-            <th scope="col">Phone: </th>
-            <th scope="col">Email: </th>
+            <th class="sortr" scope="col"><a (click)="sortBy('code')">Code: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('name')">Name: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('address')">Address: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('city')">City: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('state')">State: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('zip')">Zip: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('phone')">Phone: </a></th>
+            <th class="sortr" scope="col"><a (click)="sortBy('email')">Email: </a></th>
             <th scope="col">Preferred? </th>
             <th scope="col">Actions: </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let v of vendors | venSearch:searchCriteria">
+        <tr *ngFor="let v of vendors | venSearch:searchCriteria | sort:sortCriteria:sortOrder">
             <td>{{v.code}}</td>
             <td>{{v.name}}</td>
             <td>{{v.address}}</td>
