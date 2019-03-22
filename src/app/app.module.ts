@@ -38,6 +38,7 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { ReviewComponent } from './request/review/review.component';
+import { ReviewLinesComponent } from './request/review-lines/review-lines.component';
 
 import { ProSearchPipe } from './system/pro-search.pipe';
 import { ReSearchPipe } from './system/re-search.pipe';
@@ -80,7 +81,8 @@ import { RequestLineCreateComponent } from './requestLine/request-line-create/re
     RequestLineListComponent,
     RequestLineEditComponent,
     RequestLineCreateComponent,
-    ReviewComponent
+    ReviewComponent,
+    ReviewLinesComponent
   ],
   imports: [
     BrowserModule,

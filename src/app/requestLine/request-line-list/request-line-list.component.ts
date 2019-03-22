@@ -7,7 +7,7 @@ import{Router} from '@angular/router';
 import{ActivatedRoute} from '@angular/router';
 import { Request } from '../../request/request.class';
 import { RequestLine } from '../requestLine.class';
-import { refreshDescendantViews } from '@angular/core/src/render3/instructions';
+//import { refreshDescendantViews } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-request-line-list',
