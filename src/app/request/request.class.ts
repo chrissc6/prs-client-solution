@@ -1,4 +1,4 @@
-import{User} from '../user/user.class'
+import{User} from '../user/user.class';
 
 export class Request{
 
