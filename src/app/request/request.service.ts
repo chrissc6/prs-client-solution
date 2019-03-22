@@ -26,6 +26,12 @@ export class RequestService {
   remove(request:Request): Observable<any>{
     return this.http.delete(`${url}/requests/${request.id}`) as Observable<any>;
   }
+  listReview(): Observable<Request[]>{
+    return this.http.get(`${url}/requests/review`) as Observable<Request[]>;
+  }
+  review(request:Request): Observable<any>{
+    return this.http.put(`${url}/requests/review/${request.id}`, request) as Observable<any>;
+  }
 
   constructor(private http:HttpClient) { }
 }

@@ -7,6 +7,7 @@ import{Router} from '@angular/router';
 import{ActivatedRoute} from '@angular/router';
 import { Request } from '../../request/request.class';
 import { RequestLine } from '../requestLine.class';
+import { refreshDescendantViews } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-request-line-list',
@@ -23,13 +24,21 @@ export class RequestLineListComponent implements OnInit {
     .subscribe(
       respond => {
         console.log("RequestLine Delete Successful!", respond);
-        this.router.navigateByUrl(`/requestline/list/${this.request.id}`);
+        this.refresh();
       },
       err => {
         console.log("RequestLine Delete Failed!", err)
       }
     );
   }
+
+  refresh():void{
+    this.relsrvc.get(`${this.request.id}`)
+    .subscribe( respond => {
+      this.request=respond;
+    });
+  }
+
   constructor(private relsrvc: RequestService,
     private relssrvc: RequestLineService,
     private syssvc: SystemService,

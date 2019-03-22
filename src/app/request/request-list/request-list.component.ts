@@ -31,7 +31,7 @@ export class RequestListComponent implements OnInit {
   constructor(private resrvc: RequestService,
     private syssvc: SystemService) { }
 
-  ngOnInit() {
+    ngOnInit() {
     this.resrvc.list()
       .subscribe(respond => {
         console.log(respond);

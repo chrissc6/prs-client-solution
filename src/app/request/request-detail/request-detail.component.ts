@@ -33,6 +33,14 @@ export class RequestDetailComponent implements OnInit {
         });
   }
 
+  reviewB(){
+    this.rescvr.review(this.request)
+    .subscribe(respond => {
+      console.log(respond);
+      this.router.navigateByUrl(`/request/list`);
+    })
+  }
+
   setVerify(): void{
     this.verify = true;
     this.verifyN = false;
