@@ -35,7 +35,6 @@ export class RequestLineCreateComponent implements OnInit {
   }
   
   constructor(private relsscvr: RequestLineService,
-    private relscvr: RequestService,
     private proscvr: ProductService,
     private router: Router,
     private route: ActivatedRoute,

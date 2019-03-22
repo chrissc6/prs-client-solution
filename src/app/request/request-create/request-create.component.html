@@ -32,6 +32,18 @@
       <th scope="col">Total: </th>
       <td><input [(ngModel)]="request.total" class="inputstirng" type="text"></td>
     </tr>
+    <!-- <tr *ngIf="users">
+      <th scope="col">User: </th>
+      <td><input [(ngModel)]="users.username" class="inputstirng" type="text" disabled></td>
+    </tr> -->
+    <tr *ngIf="users">
+        <th scope="col">User: </th>
+        <td>
+          <select [(ngModel)]="request.userId">
+              <option *ngFor="let u of users" [ngValue]="u.id">{{u.username}}</option>
+          </select>
+        </td>
+      </tr>
     <tr>
       <button (click)="save()" class="btn btn-success">Save</button>
     </tr>

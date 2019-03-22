@@ -1,4 +1,23 @@
 <app-menu></app-menu>
-<p>
-  request-line-edit works!
-</p>
+<div>
+  <div>
+    <span  class="display-4">Requestline Edit</span>
+  </div>
+  <table class="table table-hover table-bordered table-responsive" *ngIf="products">
+    <tr>
+      <th scope="col">Product: </th>
+      <td>
+        <select [(ngModel)]="requestline.productId">
+            <option *ngFor="let p of products" [ngValue]="p.id">{{p.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="col">Quantity: </th>
+      <td><input [(ngModel)]="requestline.quantity" class="inputstirng" type="number"></td>
+    </tr>
+    <tr>
+      <button (click)="save()" class="btn btn-success">Save</button>
+    </tr>
+  </table>
+  </div>
