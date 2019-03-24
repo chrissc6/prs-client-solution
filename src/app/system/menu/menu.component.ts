@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Menu} from './menu.class';
+import {SystemService} from '../system.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +21,7 @@ export class MenuComponent implements OnInit {
     new Menu("Login/out", "/login", "Login to PRS")
   ]
 
-  constructor() { }
+  constructor(private syssvc: SystemService) { }
 
   ngOnInit() {
   }
