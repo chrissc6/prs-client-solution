@@ -22,7 +22,7 @@
             <td><a routerLink="/vendor/detail/{{p.vendor.id}}">{{p.vendor.name}}</a></td>
             <td>{{p.partNumber}}</td>
             <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
+            <td>{{p.price | currency }}</td>
             <td>{{p.unit}}</td>
             <td>{{p.photoPath}}</td>
             <td>

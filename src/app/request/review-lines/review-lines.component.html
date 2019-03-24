@@ -31,7 +31,7 @@
     <tr *ngFor="let line of request.requestLines">
       <td>{{ line.product.name }}</td>
       <td>{{ line.quantity }}</td>
-      <td>{{ line.product.price }}</td>
+      <td>{{ line.product.price | currency }}</td>
       <td>{{ line.product.price*line.quantity | currency }}</td>
     </tr>
   </table>

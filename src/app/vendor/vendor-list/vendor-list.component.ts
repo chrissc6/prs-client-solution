@@ -13,7 +13,7 @@ export class VendorListComponent implements OnInit {
 
   vendors: Vendor[];
   searchCriteria: string = "";
-  sortCriteria: string = "username";
+  sortCriteria: string = "vendor";
   sortOrder: string = "asc";
 
   sortBy(column: string): void{
