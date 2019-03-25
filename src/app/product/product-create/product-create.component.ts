@@ -6,6 +6,7 @@ import{ProductService} from '../product.service';
 import{Vendor} from '../../vendor/vendor.class';
 import{VendorService} from '../../vendor/vendor.service';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-product-create',
@@ -16,6 +17,7 @@ export class ProductCreateComponent implements OnInit {
 
   vendors: Vendor[];
   product: Product = new Product(0,"","",0,"Each","")
+  logU:User;
 
   constructor(private proscvr: ProductService,
     private venscvr: VendorService,
@@ -36,15 +38,23 @@ export class ProductCreateComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.venscvr.list()
-    .subscribe(respond => {
-      this.vendors = respond;
-      console.log(respond);
-      },
-      err => {
-        console.log(err);
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
       }
-    )
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.venscvr.list()
+        .subscribe(respond => {
+          this.vendors = respond;
+          console.log(respond);
+          },
+          err => {
+            console.log(err);
+          }
+        )
+      }
   };
 
 }

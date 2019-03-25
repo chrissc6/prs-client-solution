@@ -35,7 +35,7 @@
           <td>{{u.isAdmin | booldisp}}</td>
           <td>
             <a routerLink="/user/detail/{{u.id}}">Detail</a> |
-            <a routerLink="/user/edit/{{u.id}}">Edit</a>
+            <a *ngIf="logUa" routerLink="/user/edit/{{u.id}}">Edit</a>
           </td>
       </tr>
     </tbody>

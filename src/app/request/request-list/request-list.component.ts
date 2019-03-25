@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{Request} from '../request.class';
 import{RequestService} from '../request.service';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-list',
@@ -15,6 +17,9 @@ export class RequestListComponent implements OnInit {
   searchCriteria: string = "";
   sortCriteria: string = "username";
   sortOrder: string = "asc";
+  logUid: number;
+  logUa:boolean = false;
+  logU:User;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -29,14 +34,28 @@ export class RequestListComponent implements OnInit {
   }
 
   constructor(private resrvc: RequestService,
-    private syssvc: SystemService) { }
+    private syssvc: SystemService,
+    private router: Router) { }
 
     ngOnInit() {
-    this.resrvc.list()
-      .subscribe(respond => {
-        console.log(respond);
-        this.requests = respond;
-      });
+      if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        if(this.logU.isAdmin == true)
+        {
+          this.logUa = true;
+        }
+        this.logUid = this.syssvc.loggedInUser.id;
+        this.resrvc.list()
+          .subscribe(respond => {
+            console.log(respond);
+            this.requests = respond;
+          });
+      }
   }
 
 }

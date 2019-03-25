@@ -17,6 +17,8 @@ export class UserDetailComponent implements OnInit {
 
   verify: boolean = false;
   verifyN: boolean = true;
+  logU:User;
+  logUa:boolean;
 
   constructor(private userscvr: UserService,
     private route: ActivatedRoute,
@@ -24,13 +26,22 @@ export class UserDetailComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.logUa = this.logU.isAdmin;
+        let id = this.route.snapshot.params.id;
 
-    this.userscvr.get(id)
-      .subscribe(respond => {
-        console.log(respond);
-        this.user = respond;
-        });
+        this.userscvr.get(id)
+          .subscribe(respond => {
+            console.log(respond);
+            this.user = respond;
+            });
+      }
   }
 
   setVerify(): void{

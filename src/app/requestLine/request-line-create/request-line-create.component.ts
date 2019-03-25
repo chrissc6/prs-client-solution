@@ -7,6 +7,7 @@ import { Product } from '../../product/product.class';
 import{ProductService} from '../../product/product.service';
 import{Router, ActivatedRoute} from '@angular/router';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-line-create',
@@ -19,6 +20,7 @@ export class RequestLineCreateComponent implements OnInit {
   request: Request;
   rid: string;
   products: Product[];
+  logU:User;
 
   save(): void{
     this.requestline.requestId = Number(this.rid);
@@ -41,14 +43,22 @@ export class RequestLineCreateComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    this.rid = this.route.snapshot.params.rid;
-
-    this.proscvr.list()
-    .subscribe(respond => {
-      console.log(respond);
-      this.products = respond;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
       }
-    );
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.rid = this.route.snapshot.params.rid;
+
+        this.proscvr.list()
+        .subscribe(respond => {
+          console.log(respond);
+          this.products = respond;
+          }
+        );
+      }
   }
 
 }

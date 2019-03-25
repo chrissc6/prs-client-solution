@@ -6,6 +6,7 @@ import{Request} from '../request.class';
 import{RequestService} from '../request.service';
 import{UserService} from '../../user/user.service';
 import { User } from '../../user/user.class';
+import { toDate } from '@angular/common/src/i18n/format_date';
 
 @Component({
   selector: 'app-request-create',
@@ -15,7 +16,10 @@ import { User } from '../../user/user.class';
 export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
-  users: User[];
+  // users: User[];
+  logU:User;
+  toD: Date = new Date();
+  toDs = this.toD.toISOString();
 
   constructor(private rescvr: RequestService,
     private uscvr: UserService,
@@ -23,7 +27,11 @@ export class RequestCreateComponent implements OnInit {
     private syssvc: SystemService) { }
 
     save():void{
-      this.rescvr.create(this.request)
+      if(this.request.submittedDate == "")
+      {
+        this.request.submittedDate = this.toDs;
+      }
+        this.rescvr.create(this.request)
         .subscribe(
           respond => {
             console.log(respond);
@@ -36,13 +44,23 @@ export class RequestCreateComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.uscvr.list()
-    .subscribe(
-      respond => {
-        console.log(respond);
-        this.users = respond;
-      }
-    )
+    if(this.syssvc.loggedInUser == null)
+    {
+      this.router.navigateByUrl('/login');
+    }
+    else
+    {
+      this.logU = this.syssvc.loggedInUser;
+      this.request.userId = this.logU.id;
+      console.log(this.request);
+    }
+    // this.uscvr.list()
+    // .subscribe(
+    //   respond => {
+    //     console.log(respond);
+    //     this.users = respond;
+    //   }
+    // )
   }
 
 }

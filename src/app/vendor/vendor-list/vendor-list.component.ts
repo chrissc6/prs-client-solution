@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{VendorService} from '../vendor.service';
 import{Vendor} from '../vendor.class';
 import {SystemService} from '../../system/system.service';
+import { Router } from '@angular/router';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-vendor-list',
@@ -15,6 +17,8 @@ export class VendorListComponent implements OnInit {
   searchCriteria: string = "";
   sortCriteria: string = "vendor";
   sortOrder: string = "asc";
+  logU:User;
+  logUa:boolean;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -29,14 +33,24 @@ export class VendorListComponent implements OnInit {
   }
 
   constructor(private vensrvc: VendorService,
-    private syssvc: SystemService) { }
+    private syssvc: SystemService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.vensrvc.list()
-    .subscribe(respond => {
-      console.log(respond);
-      this.vendors = respond;
-    });
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.logUa = this.logU.isAdmin;
+        this.vensrvc.list()
+        .subscribe(respond => {
+          console.log(respond);
+          this.vendors = respond;
+        });
+      }
   }
 
 }

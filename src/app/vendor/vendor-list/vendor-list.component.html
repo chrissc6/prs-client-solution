@@ -33,7 +33,7 @@
             <td>{{v.isPreferred | booldisp}}</td>
             <td>
               <a routerLink="/vendor/detail/{{v.id}}">Detail</a> |
-              <a routerLink="/vendor/edit/{{v.id}}">Edit</a>
+              <a *ngIf="logUa" routerLink="/vendor/edit/{{v.id}}">Edit</a>
             </td>
         </tr>
       </tbody>

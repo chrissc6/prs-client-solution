@@ -38,7 +38,7 @@ import { RequestLineEditComponent } from './requestLine/request-line-edit/reques
 import { RequestLineCreateComponent } from './requestLine/request-line-create/request-line-create.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'}, //1st route always
+  {path: '', redirectTo: '/login', pathMatch: 'full'}, //1st route always
 
   //user
   {path: 'user/list', component: UserListComponent},

@@ -7,6 +7,7 @@ import{ProductService} from '../product.service';
 import{Vendor} from '../../vendor/vendor.class';
 import{VendorService} from '../../vendor/vendor.service';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-product-edit',
@@ -17,6 +18,7 @@ export class ProductEditComponent implements OnInit {
 
   product: Product;
   vendors: Vendor[];
+  logU: User;
 
   save():void{
     this.proscvr.change(this.product)
@@ -38,18 +40,26 @@ export class ProductEditComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        let id = this.route.snapshot.params.id;
 
-    this.proscvr.get(id)
-      .subscribe(
-        respond => {
-        console.log(respond);
-        this.product = respond;
-        },
-        err =>{
-          console.error(err);
-        }
-      );
+        this.proscvr.get(id)
+          .subscribe(
+            respond => {
+            console.log(respond);
+            this.product = respond;
+            },
+            err =>{
+              console.error(err);
+            }
+          );
+      }
     
     this.venscvr.list()
       .subscribe(respond => {

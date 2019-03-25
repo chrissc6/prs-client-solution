@@ -20,10 +20,10 @@
       <th scope="col">Delivery Mode:</th>
       <td><input [(ngModel)]="request.deliveryMode" class="inputstirng" type="text"></td>
     </tr>
-    <!-- <tr>
+    <tr>
       <th scope="col">Submitted Date:</th>
       <td><input [(ngModel)]="request.submittedDate" class="inputstirng" type="text"></td>
-    </tr> -->
+    </tr>
     <tr>
       <th scope="col">Status:</th>
       <td><input [(ngModel)]="request.status" class="inputstirng" type="text"></td>
@@ -32,18 +32,18 @@
       <th scope="col">Total: </th>
       <td><input [(ngModel)]="request.total" class="inputstirng" type="text"></td>
     </tr>
-    <!-- <tr *ngIf="users">
+    <tr *ngIf="logU">
       <th scope="col">User: </th>
-      <td><input [(ngModel)]="users.username" class="inputstirng" type="text" disabled></td>
-    </tr> -->
-    <tr *ngIf="users">
+      <td><input [(ngModel)]="logU.username" class="inputstirng" type="text" disabled></td>
+    </tr>
+    <!-- <tr *ngIf="users">
         <th scope="col">User: </th>
         <td>
           <select [(ngModel)]="request.userId">
               <option *ngFor="let u of users" [ngValue]="u.id">{{u.username}}</option>
           </select>
         </td>
-      </tr>
+      </tr> -->
     <tr>
       <button (click)="save()" class="btn btn-success">Save</button>
     </tr>

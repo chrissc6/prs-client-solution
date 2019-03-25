@@ -10,10 +10,30 @@ export class SortPipe implements PipeTransform {
     return objArr.sort(compF);
 
     function compF(top: any, bot: any){
-      // let t: string= top[column].toLowerCase();
-      // let b: string= bot[column].toLowerCase();
-      let t: string= top[column];
-      let b: string= bot[column];
+      let t1 = top[column];
+      let b1 = bot[column];
+      var t;
+      var b;
+      //let t = top[column];
+      if(t1 == null)
+      {
+        t = "";
+      }
+      else
+      {
+        t = top[column].toLowerCase();
+      }
+      //let b = bot[column]
+      if(bot[column] == null)
+      {
+        b = "";
+      }
+      else
+      {
+        b = bot[column].toLowerCase();
+      }
+      // let t: string= top[column];
+      // let b: string= bot[column];
 
       if(t === b)
       {

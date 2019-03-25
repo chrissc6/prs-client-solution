@@ -7,6 +7,7 @@ import{Router} from '@angular/router';
 import{ActivatedRoute} from '@angular/router';
 import { Request } from '../../request/request.class';
 import { RequestLine } from '../requestLine.class';
+import { User } from '../../user/user.class';
 //import { refreshDescendantViews } from '@angular/core/src/render3/instructions';
 
 @Component({
@@ -18,6 +19,8 @@ export class RequestLineListComponent implements OnInit {
 
   request: Request;
   line: RequestLine;
+  logU:User;
+  logUa:boolean;
   
   delete(line: RequestLine): void{
     this.relssrvc.remove(line)
@@ -46,13 +49,25 @@ export class RequestLineListComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let rid = this.route.snapshot.params.rid;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        if(this.logU.isAdmin == true)
+        {
+          this.logUa = true;
+        }
+        let rid = this.route.snapshot.params.rid;
 
-    this.relsrvc.get(rid)
-      .subscribe(respond => {
-        console.log(respond);
-        this.request = respond;
-        });
+        this.relsrvc.get(rid)
+          .subscribe(respond => {
+            console.log(respond);
+            this.request = respond;
+            });
+      }
   }
 
 

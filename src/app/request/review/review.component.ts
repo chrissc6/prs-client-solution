@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import{RequestService} from '../request.service';
 import{Request} from '../request.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-review',
@@ -15,6 +17,7 @@ export class ReviewComponent implements OnInit {
   searchCriteria: string = "";
   sortCriteria: string = "username";
   sortOrder: string = "asc";
+  logU: User;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -29,14 +32,23 @@ export class ReviewComponent implements OnInit {
   }
 
   constructor(private resrvc: RequestService,
-    private syssvc: SystemService) { }
+    private syssvc: SystemService,
+    private router: Router) { }
 
     ngOnInit() {
-    this.resrvc.listReview()
-      .subscribe(respond => {
-        console.log(respond);
-        this.requests = respond;
-      });
+      if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.resrvc.listReview()
+          .subscribe(respond => {
+            console.log(respond);
+            this.requests = respond;
+          });
+      }
   }
 
 }

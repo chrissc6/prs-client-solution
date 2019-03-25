@@ -5,6 +5,7 @@ import{ActivatedRoute} from '@angular/router';
 import {SystemService} from '../../system/system.service';
 import{Request} from '../request.class';
 import{RequestService} from '../request.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-edit',
@@ -14,6 +15,7 @@ import{RequestService} from '../request.service';
 export class RequestEditComponent implements OnInit {
 
   request: Request;
+  logU: User;
 
   constructor(private rescvr: RequestService,
     private router: Router,
@@ -21,19 +23,27 @@ export class RequestEditComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
 
-    let id = this.route.snapshot.params.id;
+        let id = this.route.snapshot.params.id;
 
-    this.rescvr.get(id)
-      .subscribe(
-        respond => {
-        console.log(respond);
-        this.request = respond;
-        },
-        err =>{
-          console.error(err);
-        }
-      );
+        this.rescvr.get(id)
+          .subscribe(
+            respond => {
+            console.log(respond);
+            this.request = respond;
+            },
+            err =>{
+              console.error(err);
+            }
+          );
+      }
   }
 
   save():void{

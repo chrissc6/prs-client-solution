@@ -5,6 +5,7 @@ import{Router} from '@angular/router';
 import{Product} from '../product.class';
 import{ProductService} from '../product.service';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +18,8 @@ export class ProductDetailComponent implements OnInit {
 
   verify: boolean = false;
   verifyN: boolean = true;
+  logU:User;
+  logUa:boolean;
 
   constructor(private proscvr: ProductService,
     private route: ActivatedRoute,
@@ -24,13 +27,22 @@ export class ProductDetailComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.logUa = this.logU.isAdmin;
+        let id = this.route.snapshot.params.id;
 
-    this.proscvr.get(id)
-      .subscribe(respond => {
-        console.log(respond);
-        this.product = respond;
-        });
+        this.proscvr.get(id)
+          .subscribe(respond => {
+            console.log(respond);
+            this.product = respond;
+            });
+      }
   }
 
   setVerify(): void{

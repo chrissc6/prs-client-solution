@@ -5,6 +5,7 @@ import{ActivatedRoute} from '@angular/router';
 import{VendorService} from '../vendor.service';
 import{Vendor} from '../vendor.class';
 import{SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-vendor-edit',
@@ -14,6 +15,7 @@ import{SystemService} from '../../system/system.service';
 export class VendorEditComponent implements OnInit {
 
   vendor: Vendor;
+  logU:User;
 
   save(): void{
     this.venscrv.change(this.vendor)
@@ -34,18 +36,26 @@ export class VendorEditComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
-
-    this.venscrv.get(id)
-    .subscribe(
-      respond => {
-        console.log(respond);
-        this.vendor = respond;
-      },
-      err => {
-        console.error(err);
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
       }
-    );
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        let id = this.route.snapshot.params.id;
+
+        this.venscrv.get(id)
+        .subscribe(
+          respond => {
+            console.log(respond);
+            this.vendor = respond;
+          },
+          err => {
+            console.error(err);
+          }
+        );
+      }
   }
 
 }

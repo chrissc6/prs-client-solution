@@ -16,6 +16,7 @@ export class UserCreateComponent implements OnInit {
 
   user: User = new User("", "", "", "", "", "");
   password2:string = "";
+  logU: User;
   
 
   save():void{
@@ -59,6 +60,14 @@ export class UserCreateComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+      }
   }
 
 }

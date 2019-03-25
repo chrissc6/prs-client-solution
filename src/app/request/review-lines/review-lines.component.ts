@@ -7,6 +7,7 @@ import{Router} from '@angular/router';
 import{ActivatedRoute} from '@angular/router';
 import { Request } from '../../request/request.class';
 import { RequestLine } from '../../requestLine/requestLine.class';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-review-lines',
@@ -17,6 +18,7 @@ export class ReviewLinesComponent implements OnInit {
 
   request: Request;
   reline: RequestLine;
+  logU: User;
 
   constructor(private relsrvc: RequestService,
     private relssrvc: RequestLineService,
@@ -41,13 +43,21 @@ export class ReviewLinesComponent implements OnInit {
     }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        let id = this.route.snapshot.params.id;
 
-    this.relsrvc.get(id)
-      .subscribe(respond => {
-        console.log(respond);
-        this.request = respond;
-        });
+        this.relsrvc.get(id)
+          .subscribe(respond => {
+            console.log(respond);
+            this.request = respond;
+            });
+      }
   }
 
 }

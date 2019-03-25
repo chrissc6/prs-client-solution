@@ -27,7 +27,7 @@
             <td>{{p.photoPath}}</td>
             <td>
               <a routerLink="/product/detail/{{p.id}}">Detail</a> |
-              <a routerLink="/product/edit/{{p.id}}">Edit</a>
+              <a *ngIf="logUa" routerLink="/product/edit/{{p.id}}">Edit</a>
             </td>
         </tr>
       </tbody>

@@ -7,6 +7,7 @@ import { Product } from '../../product/product.class';
 import{ProductService} from '../../product/product.service';
 import{Router, ActivatedRoute} from '@angular/router';
 import {SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-line-edit',
@@ -19,6 +20,7 @@ export class RequestLineEditComponent implements OnInit {
   request: Request;
   rid: string;
   products: Product[];
+  logU: User;
 
   save(): void{
     this.relsscvr.change(this.requestline)
@@ -40,27 +42,35 @@ export class RequestLineEditComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    this.rid = this.route.snapshot.params.rid;
-
-    this.proscvr.list()
-    .subscribe(respond => {
-      console.log(respond);
-      this.products = respond;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
       }
-    );
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.rid = this.route.snapshot.params.rid;
 
-    let id = this.route.snapshot.params.id;
+        this.proscvr.list()
+        .subscribe(respond => {
+          console.log(respond);
+          this.products = respond;
+          }
+        );
 
-    this.relsscvr.get(id)
-      .subscribe(
-        respond => {
-        console.log(respond);
-        this.requestline = respond;
-        },
-        err =>{
-          console.error(err);
-        }
-      );
+        let id = this.route.snapshot.params.id;
+
+        this.relsscvr.get(id)
+          .subscribe(
+            respond => {
+            console.log(respond);
+            this.requestline = respond;
+            },
+            err =>{
+              console.error(err);
+            }
+          );
+      }
   }
 
 }

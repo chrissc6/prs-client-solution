@@ -4,6 +4,7 @@ import{Router} from '@angular/router';
 import{VendorService} from '../vendor.service';
 import{Vendor} from '../vendor.class';
 import{SystemService} from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-vendor-create',
@@ -13,6 +14,7 @@ import{SystemService} from '../../system/system.service';
 export class VendorCreateComponent implements OnInit {
 
   vendor: Vendor = new Vendor('','','','','','','','')
+  logU:User;
 
   save(): void{
     this.venscrv.create(this.vendor)
@@ -32,6 +34,14 @@ export class VendorCreateComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+      }
   }
 
 }

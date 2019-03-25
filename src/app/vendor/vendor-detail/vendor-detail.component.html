@@ -46,8 +46,8 @@
         <td>{{vendor.active | booldisp}}</td>
       </tr>
     </table>
-  <span><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
-  <span *ngIf="verifyN"><button (click)="setVerify()" class="btn btn-warning">Delete</button></span>
+  <span *ngIf="logUa"><button (click)="editB()" class="btn btn-primary">Edit</button> | </span>
+  <span *ngIf="verifyN && logUa"><button (click)="setVerify()" class="btn btn-warning">Delete</button></span>
   <span *ngIf="verify"><button (click)="setVerifyN()" class="btn btn-warning">Cancel Delete</button> | </span>
   <span *ngIf="verify"><button (click)="delete()" class="btn btn-danger">Verify Delete</button></span>
 </div>

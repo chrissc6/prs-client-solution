@@ -16,6 +16,7 @@ export class UserEditComponent implements OnInit {
   //no need to initialize because were going to load it with data
   //had to add *ngIf in the html
   user: User;
+  logU:User;
 
   save():void{
     this.userscvr.change(this.user)
@@ -36,17 +37,25 @@ export class UserEditComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        let id = this.route.snapshot.params.id;
 
-    this.userscvr.get(id)
-      .subscribe(respond => {
-        console.log(respond);
-        this.user = respond;
-        },
-        err =>{ //error
-          console.error(err);
-        }
-      );
+        this.userscvr.get(id)
+          .subscribe(respond => {
+            console.log(respond);
+            this.user = respond;
+            },
+            err =>{ //error
+              console.error(err);
+            }
+          );
+      }
   }
 
 }

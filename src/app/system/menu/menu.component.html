@@ -1,6 +1,9 @@
 <div>
   <nav>
-    <ul>
+    <ul *ngIf="logUr2">
+      <app-menu-item [menuItem]="mi" *ngFor="let mi of menu2"></app-menu-item>
+    </ul>
+    <ul *ngIf="logUr">
       <app-menu-item [menuItem]="mi" *ngFor="let mi of menu"></app-menu-item>
     </ul>
   </nav>

@@ -5,6 +5,7 @@ import{Router} from '@angular/router';
 import {SystemService} from '../../system/system.service';
 import{Request} from '../request.class';
 import{RequestService} from '../request.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-detail',
@@ -17,6 +18,9 @@ export class RequestDetailComponent implements OnInit {
 
   verify: boolean = false;
   verifyN: boolean = true;
+  logU: User;
+  logUa: boolean = false;
+  logUid: number;
 
   constructor(private rescvr: RequestService,
     private route: ActivatedRoute,
@@ -24,13 +28,26 @@ export class RequestDetailComponent implements OnInit {
     private syssvc: SystemService) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
-
-    this.rescvr.get(id)
-      .subscribe(respond => {
-        console.log(respond);
-        this.request = respond;
-        });
+    if(this.syssvc.loggedInUser == null)
+      {
+        this.router.navigateByUrl('/login');
+      }
+      else
+      {
+        this.logU = this.syssvc.loggedInUser;
+        this.logUid = this.syssvc.loggedInUser.id;
+        if(this.logU.isAdmin == true)
+        {
+          this.logUa = true;
+        }
+        let id = this.route.snapshot.params.id;
+    
+        this.rescvr.get(id)
+          .subscribe(respond => {
+            console.log(respond);
+            this.request = respond;
+            });
+      }
   }
 
   reviewB(){
