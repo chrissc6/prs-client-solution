@@ -2,7 +2,7 @@
 <div>
   <div>
     <span  class="display-4">User Detail|</span>
-    <span  class="h1"> <a routerLink="/user/create">Create</a></span>
+    <span *ngIf="logUa" class="h1"> <a routerLink="/user/create">Create</a></span>
   </div>
   <table class="table table-hover table-bordered table-responsive" *ngIf="user">
     <tr>

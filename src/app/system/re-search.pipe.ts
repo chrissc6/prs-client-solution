@@ -31,10 +31,15 @@ export class ReSearchPipe implements PipeTransform {
         arrOut.push(v);
         continue;
       }
-      if(v.submittedDate.toLowerCase().includes(crit.toLowerCase()))
+      if(v.submittedDate == null)
+      {}
+      else
       {
-        arrOut.push(v);
-        continue;
+        if(v.submittedDate.toLowerCase().includes(crit.toLowerCase()))
+        {
+          arrOut.push(v);
+          continue;
+        }
       }
       if(v.status.toLowerCase().includes(crit.toLowerCase()))
       {

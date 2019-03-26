@@ -2,7 +2,7 @@
 <div>
   <div>
     <span  class="display-4">User List</span>
-    <span  class="h1"> | <a routerLink="/user/create">Create</a></span>
+    <span *ngIf="logUa" class="h1"> | <a routerLink="/user/create">Create</a></span>
     <span> | Search <input [(ngModel)]="searchCriteria" type="text"></span>
   </div>
   <table class="table table-hover table-bordered table-responsive">
@@ -34,7 +34,8 @@
           <td>{{u.isReviewer | booldisp}}</td>
           <td>{{u.isAdmin | booldisp}}</td>
           <td>
-            <a routerLink="/user/detail/{{u.id}}">Detail</a> |
+            <a routerLink="/user/detail/{{u.id}}">Detail</a>
+            <span *ngIf="logUa"> | </span>
             <a *ngIf="logUa" routerLink="/user/edit/{{u.id}}">Edit</a>
           </td>
       </tr>

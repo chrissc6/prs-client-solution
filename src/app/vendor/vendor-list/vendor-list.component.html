@@ -2,7 +2,7 @@
 <div>
   <div>
       <span  class="display-4">Vendor List</span>
-      <span  class="h1"> | <a routerLink="/vendor/create">Create</a></span>
+      <span *ngIf="logUa" class="h1"> | <a routerLink="/vendor/create">Create</a></span>
       <span> | Search <input [(ngModel)]="searchCriteria" type="text"></span>
   </div>
   <table class="table table-hover table-bordered table-responsive">
@@ -32,7 +32,8 @@
             <td>{{v.email}}</td>
             <td>{{v.isPreferred | booldisp}}</td>
             <td>
-              <a routerLink="/vendor/detail/{{v.id}}">Detail</a> |
+              <a routerLink="/vendor/detail/{{v.id}}">Detail</a>
+              <span *ngIf="logUa"> | </span>
               <a *ngIf="logUa" routerLink="/vendor/edit/{{v.id}}">Edit</a>
             </td>
         </tr>

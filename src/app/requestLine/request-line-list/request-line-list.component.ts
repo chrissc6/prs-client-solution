@@ -21,7 +21,19 @@ export class RequestLineListComponent implements OnInit {
   line: RequestLine;
   logU:User;
   logUa:boolean;
-  
+  verify:boolean = false;
+  verifyN:boolean = true;
+
+  setVerify(): void{
+    this.verify = true;
+    this.verifyN = false;
+  }
+
+  setVerifyN(): void{
+    this.verify = false;
+    this.verifyN = true;
+  }
+
   delete(line: RequestLine): void{
     this.relssrvc.remove(line)
     .subscribe(
