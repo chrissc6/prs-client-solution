@@ -9,13 +9,13 @@
     <thead>
       <tr>
           <!-- <th scope="col">Id: </th> -->
-          <th class="sortr" scope="col"><a (click)="sortBy('username')">Username: </a></th>
+          <th scope="col"><a (click)="sortBy('username')">Username <i class="fas fa-sort"></i></a></th>
           <!-- <th scope="col">Password: </th>
           <th scope="col">Firstname: </th>
           <th scope="col">Lastname: </th> -->
-          <th class="sortr" scope="col"><a (click)="sortBy('lastname')">Name: </a></th>
-          <th class="sortr" scope="col"><a (click)="sortBy('phone')">Phone: </a></th>
-          <th class="sortr" scope="col"><a (click)="sortBy('email')">Email: </a></th>
+          <th scope="col"><a (click)="sortBy('lastname')">Name <i class="fas fa-sort"></i></a></th>
+          <th scope="col"><a (click)="sortBy('phone')">Phone <i class="fas fa-sort"></i></a></th>
+          <th scope="col"><a (click)="sortBy('email')">Email <i class="fas fa-sort"></i></a></th>
           <th scope="col">Reviewer? </th>
           <th scope="col">Admin? </th>
           <th scope="col">Actions: </th>
@@ -42,3 +42,4 @@
     </tbody>
   </table>
 </div>
+<div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

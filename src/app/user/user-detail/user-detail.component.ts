@@ -19,6 +19,7 @@ export class UserDetailComponent implements OnInit {
   verifyN: boolean = true;
   logU:User;
   logUa:boolean;
+  un:string;
 
   constructor(private userscvr: UserService,
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class UserDetailComponent implements OnInit {
         this.logU = this.syssvc.loggedInUser;
         this.logUa = this.logU.isAdmin;
         let id = this.route.snapshot.params.id;
+        this.un = this.logU.username;
 
         this.userscvr.get(id)
           .subscribe(respond => {

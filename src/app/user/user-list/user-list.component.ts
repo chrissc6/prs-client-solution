@@ -18,6 +18,7 @@ export class UserListComponent implements OnInit {
   sortOrder: string = "asc";
   logU:User;
   logUa:boolean = false;
+  un:string;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -44,6 +45,7 @@ export class UserListComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         this.logUa = this.logU.isAdmin;
+        this.un = this.logU.username;
         this.usersrvc.list()
           .subscribe(respond => {
             console.log(respond);

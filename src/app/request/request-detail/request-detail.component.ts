@@ -21,6 +21,7 @@ export class RequestDetailComponent implements OnInit {
   logU: User;
   logUa: boolean = false;
   logUid: number;
+  un:string;
 
   constructor(private rescvr: RequestService,
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class RequestDetailComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
         this.logUid = this.syssvc.loggedInUser.id;
         if(this.logU.isAdmin == true)
         {

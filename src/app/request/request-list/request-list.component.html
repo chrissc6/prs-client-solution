@@ -8,12 +8,12 @@
     <table class="table table-hover table-bordered table-responsive">
       <thead>
         <tr>
-            <th class="sortr" scope="col"><a (click)="sortBy('description')">Description: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('deliveryMode')">Delivery Mode: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('submittedDate')">Submitted Date: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('status')">Status: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('total')">Total: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('r.user.username')">User: </a></th>
+            <th scope="col"><a (click)="sortBy('description')">Description <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('deliveryMode')">Delivery Mode <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('submittedDate')">Submitted Date <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('status')">Status <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('total')">Total </a></th>
+            <th scope="col"><a (click)="sortBy('r.user.username')">User </a></th>
             <th scope="col">Actions: </th>
         </tr>
       </thead>
@@ -35,3 +35,4 @@
       </tbody>
     </table>
   </div>
+  <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

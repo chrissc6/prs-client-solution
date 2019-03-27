@@ -19,6 +19,7 @@ export class ProductEditComponent implements OnInit {
   product: Product;
   vendors: Vendor[];
   logU: User;
+  un:string;
 
   save():void{
     this.proscvr.change(this.product)
@@ -48,6 +49,7 @@ export class ProductEditComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         let id = this.route.snapshot.params.id;
+        this.un = this.logU.username;
 
         this.proscvr.get(id)
           .subscribe(

@@ -20,6 +20,7 @@ export class ProductDetailComponent implements OnInit {
   verifyN: boolean = true;
   logU:User;
   logUa:boolean;
+  un:string;
 
   constructor(private proscvr: ProductService,
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class ProductDetailComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         this.logUa = this.logU.isAdmin;
+        this.un = this.logU.username;
         let id = this.route.snapshot.params.id;
 
         this.proscvr.get(id)

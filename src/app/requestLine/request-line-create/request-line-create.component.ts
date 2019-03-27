@@ -21,6 +21,7 @@ export class RequestLineCreateComponent implements OnInit {
   rid: string;
   products: Product[];
   logU:User;
+  un:string;
 
   save(): void{
     this.requestline.requestId = Number(this.rid);
@@ -51,6 +52,7 @@ export class RequestLineCreateComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         this.rid = this.route.snapshot.params.rid;
+        this.un = this.logU.username;
 
         this.proscvr.list()
         .subscribe(respond => {

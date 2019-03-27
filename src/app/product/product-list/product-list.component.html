@@ -8,12 +8,12 @@
     <table class="table table-hover table-bordered table-responsive">
       <thead>
         <tr>
-            <th class="sortr" scope="col"><a (click)="sortBy('product.vendor.name')">Vendor: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('partNumber')">Part #: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('name')">Name: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('price')">Price: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('unit')">Unit: </a></th>
-            <th class="sortr" scope="col"><a (click)="sortBy('photoPath')">Photopath: </a></th>
+            <th scope="col"><a (click)="sortBy('product.vendor.name')">Vendor </a></th>
+            <th scope="col"><a (click)="sortBy('partNumber')">Part # <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('name')">Name <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('price')">Price </a></th>
+            <th scope="col"><a (click)="sortBy('unit')">Unit <i class="fas fa-sort"></i></a></th>
+            <th scope="col"><a (click)="sortBy('photoPath')">Photopath <i class="fas fa-sort"></i></a></th>
             <th scope="col">Actions: </th>
         </tr>
       </thead>
@@ -34,3 +34,4 @@
       </tbody>
     </table>
   </div>
+  <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

@@ -18,6 +18,7 @@ export class ProductCreateComponent implements OnInit {
   vendors: Vendor[];
   product: Product = new Product(0,"","",0,"Each","")
   logU:User;
+  un:string;
 
   constructor(private proscvr: ProductService,
     private venscvr: VendorService,
@@ -45,6 +46,7 @@ export class ProductCreateComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
         this.venscvr.list()
         .subscribe(respond => {
           this.vendors = respond;

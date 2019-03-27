@@ -19,6 +19,7 @@ export class ReviewLinesComponent implements OnInit {
   request: Request;
   reline: RequestLine;
   logU: User;
+  un:string;
 
   constructor(private relsrvc: RequestService,
     private relssrvc: RequestLineService,
@@ -51,6 +52,7 @@ export class ReviewLinesComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         let id = this.route.snapshot.params.id;
+        this.un = this.logU.username;
 
         this.relsrvc.get(id)
           .subscribe(respond => {

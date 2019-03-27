@@ -21,6 +21,7 @@ export class RequestLineEditComponent implements OnInit {
   rid: string;
   products: Product[];
   logU: User;
+  un:string;
 
   save(): void{
     this.relsscvr.change(this.requestline)
@@ -50,6 +51,7 @@ export class RequestLineEditComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         this.rid = this.route.snapshot.params.rid;
+        this.un = this.logU.username;
 
         this.proscvr.list()
         .subscribe(respond => {

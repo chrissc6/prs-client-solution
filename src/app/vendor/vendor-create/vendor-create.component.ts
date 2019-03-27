@@ -15,6 +15,7 @@ export class VendorCreateComponent implements OnInit {
 
   vendor: Vendor = new Vendor('','','','','','','','')
   logU:User;
+  un:string;
 
   save(): void{
     this.venscrv.create(this.vendor)
@@ -41,6 +42,7 @@ export class VendorCreateComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
       }
   }
 

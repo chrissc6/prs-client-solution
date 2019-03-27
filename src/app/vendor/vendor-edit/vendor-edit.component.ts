@@ -16,6 +16,7 @@ export class VendorEditComponent implements OnInit {
 
   vendor: Vendor;
   logU:User;
+  un:string;
 
   save(): void{
     this.venscrv.change(this.vendor)
@@ -44,6 +45,7 @@ export class VendorEditComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         let id = this.route.snapshot.params.id;
+        this.un = this.logU.username;
 
         this.venscrv.get(id)
         .subscribe(

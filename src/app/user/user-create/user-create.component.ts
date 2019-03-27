@@ -17,6 +17,7 @@ export class UserCreateComponent implements OnInit {
   user: User = new User("", "", "", "", "", "");
   password2:string = "";
   logU: User;
+  un:string;
   
 
   save():void{
@@ -67,6 +68,7 @@ export class UserCreateComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
       }
   }
 

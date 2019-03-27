@@ -20,6 +20,7 @@ export class RequestCreateComponent implements OnInit {
   logU:User;
   toD: Date = new Date();
   toDs = this.toD.toISOString();
+  un:string;
 
   constructor(private rescvr: RequestService,
     private uscvr: UserService,
@@ -52,6 +53,7 @@ export class RequestCreateComponent implements OnInit {
     {
       this.logU = this.syssvc.loggedInUser;
       this.request.userId = this.logU.id;
+      this.un = this.logU.username;
       console.log(this.request);
     }
     // this.uscvr.list()

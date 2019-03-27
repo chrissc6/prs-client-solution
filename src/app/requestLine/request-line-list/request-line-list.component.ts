@@ -23,6 +23,7 @@ export class RequestLineListComponent implements OnInit {
   logUa:boolean;
   verify:boolean = false;
   verifyN:boolean = true;
+  un:string;
 
   setVerify(): void{
     this.verify = true;
@@ -72,6 +73,7 @@ export class RequestLineListComponent implements OnInit {
         {
           this.logUa = true;
         }
+        this.un = this.logU.username;
         let rid = this.route.snapshot.params.rid;
 
         this.relsrvc.get(rid)

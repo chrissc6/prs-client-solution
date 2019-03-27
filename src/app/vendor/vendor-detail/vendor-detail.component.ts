@@ -20,6 +20,7 @@ export class VendorDetailComponent implements OnInit {
   verifyN: boolean = true;
   logU:User;
   logUa:boolean;
+  un:string;
 
   constructor(private venscvr: VendorService,
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class VendorDetailComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         this.logUa = this.logU.isAdmin;
+        this.un = this.logU.username;
         let id = this.route.snapshot.params.id;
 
         this.venscvr.get(id)

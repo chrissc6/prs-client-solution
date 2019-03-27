@@ -16,6 +16,7 @@ export class RequestEditComponent implements OnInit {
 
   request: Request;
   logU: User;
+  un:string;
 
   constructor(private rescvr: RequestService,
     private router: Router,
@@ -30,6 +31,7 @@ export class RequestEditComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
 
         let id = this.route.snapshot.params.id;
 

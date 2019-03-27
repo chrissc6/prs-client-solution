@@ -3,7 +3,7 @@
   <div>
     <span  class="display-4">Requestline Edit</span>
   </div>
-  <table class="table table-hover table-bordered table-responsive" *ngIf="products">
+  <table class="table table-hover table-bordered table-responsive" *ngIf="products && requestline">
     <tr>
       <th scope="col">Product: </th>
       <td>
@@ -21,3 +21,4 @@
     </tr>
   </table>
   </div>
+  <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

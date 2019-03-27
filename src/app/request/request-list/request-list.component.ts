@@ -20,6 +20,7 @@ export class RequestListComponent implements OnInit {
   logUid: number;
   logUa:boolean = false;
   logU:User;
+  un:string;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -50,6 +51,7 @@ export class RequestListComponent implements OnInit {
           this.logUa = true;
         }
         this.logUid = this.syssvc.loggedInUser.id;
+        this.un = this.logU.username;
         this.resrvc.list()
           .subscribe(respond => {
             console.log(respond);

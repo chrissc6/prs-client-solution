@@ -18,6 +18,7 @@ export class ReviewComponent implements OnInit {
   sortCriteria: string = "username";
   sortOrder: string = "asc";
   logU: User;
+  un:string;
 
   sortBy(column: string): void{
     if(this.sortCriteria === column)
@@ -43,6 +44,7 @@ export class ReviewComponent implements OnInit {
       else
       {
         this.logU = this.syssvc.loggedInUser;
+        this.un = this.logU.username;
         this.resrvc.listReview()
           .subscribe(respond => {
             console.log(respond);

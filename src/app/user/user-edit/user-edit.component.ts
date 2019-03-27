@@ -17,6 +17,7 @@ export class UserEditComponent implements OnInit {
   //had to add *ngIf in the html
   user: User;
   logU:User;
+  un:string;
 
   save():void{
     this.userscvr.change(this.user)
@@ -45,6 +46,7 @@ export class UserEditComponent implements OnInit {
       {
         this.logU = this.syssvc.loggedInUser;
         let id = this.route.snapshot.params.id;
+        this.un = this.logU.username;
 
         this.userscvr.get(id)
           .subscribe(respond => {
