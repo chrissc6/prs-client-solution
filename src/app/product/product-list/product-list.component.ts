@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
   searchCriteria: string = "";
-  sortCriteria: string = "username";
+  sortCriteria: string = "partNumber";
   sortOrder: string = "asc";
   logU: User;
   logUa:boolean;

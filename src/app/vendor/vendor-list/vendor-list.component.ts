@@ -15,7 +15,7 @@ export class VendorListComponent implements OnInit {
 
   vendors: Vendor[];
   searchCriteria: string = "";
-  sortCriteria: string = "vendor";
+  sortCriteria: string = "name";
   sortOrder: string = "asc";
   logU:User;
   logUa:boolean;
