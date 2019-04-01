@@ -8,9 +8,10 @@
       <th scope="col">Product: </th>
       <td>
         <select [(ngModel)]="requestline.productId">
-            <option *ngFor="let p of products" [ngValue]="p.id">{{p.name}}</option>
+            <option *ngFor="let p of products | sort:sortCriteria:sortOrder" [ngValue]="p.id">{{p.name}}</option>
         </select>
       </td>
+      <span>{{message2}}</span>
     </tr>
     <tr>
       <th scope="col">Quantity: </th>
@@ -20,5 +21,6 @@
       <button (click)="save()" class="btn btn-success">Save</button>
     </tr>
   </table>
+  <span>{{message}}</span>
   </div>
   <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

@@ -16,6 +16,8 @@ export class VendorCreateComponent implements OnInit {
   vendor: Vendor = new Vendor('','','','','','','','')
   logU:User;
   un:string;
+  message: string = "";
+  message2: string = "";
 
   save(): void{
     this.venscrv.create(this.vendor)
@@ -26,6 +28,8 @@ export class VendorCreateComponent implements OnInit {
       },
       err => {
         console.log("Vendor Update Error: ", err);
+        this.message = "Error: Missing required fields";
+        this.message2 = "<- Required";
       }
     );
   }

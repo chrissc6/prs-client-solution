@@ -12,6 +12,7 @@
             <option *ngFor="let v of vendors" [ngValue]="v.id">{{v.name}}</option>
         </select>
       </td>
+      <span>{{message2}}</span>
     </tr>
     <tr>
       <th scope="col">Part #: </th>
@@ -20,6 +21,7 @@
     <tr>
       <th scope="col">Name*: </th>
       <td><input [(ngModel)]="product.name" class="inputstirng" type="text"></td>
+      <span>{{message2}}</span>
     </tr>
     <tr>
       <th scope="col">Price: </th>
@@ -41,5 +43,6 @@
       <button (click)="save()" class="btn btn-success">Save</button>
     </tr>
   </table>
+  <span>{{message}}</span>
   </div>
   <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

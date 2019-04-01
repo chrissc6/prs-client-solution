@@ -22,6 +22,10 @@ export class RequestLineCreateComponent implements OnInit {
   products: Product[];
   logU:User;
   un:string;
+  sortCriteria: string = "name";
+  sortOrder: string = "asc";
+  message: string = "";
+  message2: string = "";
 
   save(): void{
     this.requestline.requestId = Number(this.rid);
@@ -33,6 +37,8 @@ export class RequestLineCreateComponent implements OnInit {
           },
           err => {
             console.error(err);
+            this.message = "Error: Missing required fields";
+            this.message2 = "<- Required";
           }
         );
   }

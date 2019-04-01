@@ -7,10 +7,12 @@
       <tr>
         <th scope="col">Code*: </th>
         <td><input [(ngModel)]="vendor.code" class="inputstirng" type="text"></td>
+        <span>{{message2}}</span>
       </tr>
       <tr>
         <th scope="col">Name*: </th>
         <td><input [(ngModel)]="vendor.name" class="inputstirng" type="text"></td>
+        <span>{{message2}}</span>
       </tr>
       <tr>
         <th scope="col">Address: </th>
@@ -44,5 +46,6 @@
         <button (click)="save()" class="btn btn-success">Save</button>
       </tr>
     </table>
+    <span>{{message}}</span>
   </div>
   <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

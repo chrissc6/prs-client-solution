@@ -18,6 +18,8 @@ export class UserCreateComponent implements OnInit {
   password2:string = "";
   logU: User;
   un:string;
+  message: string = "";
+  message2: string = "";
   
 
   save():void{
@@ -31,6 +33,9 @@ export class UserCreateComponent implements OnInit {
         },
         err =>{ //error
           console.error(err);
+          
+          this.message = "Error: Missing required fields";
+          this.message2 = "<- Required";
         }
       );
     }

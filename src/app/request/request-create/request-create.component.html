@@ -5,8 +5,9 @@
   </div>
   <table class="table table-hover table-bordered table-responsive" *ngIf="request">
     <tr>
-      <th scope="col">Description*:</th>
+      <th scope="col">Description:</th>
       <td><input [(ngModel)]="request.description" class="inputstirng" type="text"></td>
+      <!-- <span>{{message2}}</span> -->
     </tr>
     <tr>
       <th scope="col">Justification:</th>
@@ -48,5 +49,7 @@
       <button (click)="save()" class="btn btn-success">Save</button>
     </tr>
   </table>
+  <!-- <br>
+  <span>{{message}}</span> -->
 </div>
 <div *ngIf="un" style="position: absolute; top: 0; right: 0; width: 100px; text-align:right; color: white">{{un}}</div>

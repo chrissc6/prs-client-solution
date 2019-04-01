@@ -21,6 +21,8 @@ export class RequestCreateComponent implements OnInit {
   toD: Date = new Date();
   toDs = this.toD.toISOString();
   un:string;
+  message: string = "";
+  message2: string = "";
 
   constructor(private rescvr: RequestService,
     private uscvr: UserService,
@@ -40,6 +42,8 @@ export class RequestCreateComponent implements OnInit {
           },
           err => {
             console.error(err);
+            this.message = "Error: Missing required fields";
+            this.message2 = "<- Required";
           }
         );
     }

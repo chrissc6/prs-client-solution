@@ -19,6 +19,8 @@ export class ProductCreateComponent implements OnInit {
   product: Product = new Product(0,"","",0,"Each","")
   logU:User;
   un:string;
+  message: string = "";
+  message2: string = "";
 
   constructor(private proscvr: ProductService,
     private venscvr: VendorService,
@@ -34,6 +36,8 @@ export class ProductCreateComponent implements OnInit {
           },
           err => {
             console.error(err);
+            this.message = "Error: Missing required fields";
+            this.message2 = "<- Required";
           }
         );
     }
